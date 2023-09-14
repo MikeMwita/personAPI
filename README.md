@@ -31,14 +31,14 @@ This documentation provides information on how to use the Person API to perform 
 ##### Create Person Request
 
 - **HTTP Method**: POST
-- **URL**: `http://localhost:8000/api`
+- **URL**: `http://localhost:8000/api/name`
 - **Headers**:
     - Content-Type: application/json
 - **Request Body** (JSON):
 
 ```json
 {
-    "name": "John Doe",
+    "name": "John",
     "age": 30,
     "email": "johndoe@example.com"
 }
@@ -51,7 +51,7 @@ This documentation provides information on how to use the Person API to perform 
       ```json
       {
           "id": 1,
-          "name": "John Doe",
+          "name": "John",
           "age": 30,
           "email": "johndoe@gmail"    
         }
