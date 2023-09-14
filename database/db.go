@@ -43,7 +43,7 @@ func ConnectDatabase() *gorm.DB {
 	dbHost := os.Getenv("DATABASE_HOST")
 	if dbHost == "" {
 		// Set a default value for local development
-		dbHost = "localhost"
+		dbHost = "filtronicdb"
 	}
 
 	dbUser := os.Getenv("DATABASE_USER")
