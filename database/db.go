@@ -70,8 +70,13 @@ func ConnectDatabase() *gorm.DB {
 		dbPort = "5432" // Assuming the default PostgreSQL port is 5432
 	}
 
+	dbSSLMode := os.Getenv("DATABASE_SSL_MODE")
+	if dbSSLMode == "" {
+		// Set a default SSL mode (e.g., "disable" or "require")
+		dbSSLMode = "require"
+	}
 	// Construct the database connection string
-	dsn := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s port=%s", dbHost, dbUser, dbName, dbPassword, dbPort)
+	dsn := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=%s password=%s port=%s", dbHost, dbUser, dbName, dbSSLMode, dbPassword, dbPort)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
